@@ -3,10 +3,17 @@
 </head>
 
 <body>
-  {{> textinput}}
+<div id="outer" style="width:100%">
+	<div id="inner">
+	{{> textinput}}
+	</div>
+</div>
+  
 </body>
 
 <template name="textinput">
-  <textarea class="text" rows="25" cols="50" wrap="hard" autofocus>This thing is crazy!!</textarea>
-  <input type="button" value="Commit"></input>
+  <textarea class="text" form="textform" rows="25" cols="70" wrap="hard" autofocus>{{textstuff}}</textarea>
+  <form id="textform">
+  	<input type=submit></input>
+  </form>
 </template>

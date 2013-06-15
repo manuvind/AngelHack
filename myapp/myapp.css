@@ -2,7 +2,12 @@
 
 .text
 {
-font-family:"Arial";
+font-family:"Andale Mono";
 font-size:20px;
-text-align: "center"
+text-align: "center";
+resize: none;
+}
+#inner {
+    width: 50%;
+    margin: 0 auto;
 }

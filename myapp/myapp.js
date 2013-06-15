@@ -2,7 +2,7 @@ Files = new Meteor.Collection("files");
 if (Meteor.isClient) {
   Template.textinput.textstuff = function () {
     var currFile = Files.findOne({});
-    alert(currFile);
+    alert(currFile.text);
     return  currFile.text;
   };
 

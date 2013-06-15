@@ -1,6 +1,9 @@
+Files = new Meteor.Collection("files");
 if (Meteor.isClient) {
-  Template.hello.greeting = function () {
-    return "Welcome to myapp.";
+  Template.textinput.textstuff = function () {
+    var currFile = Files.findOne({});
+    alert(currFile);
+    return  currFile.text;
   };
 
   Template.hello.events({
@@ -14,6 +17,8 @@ if (Meteor.isClient) {
 
 if (Meteor.isServer) {
   Meteor.startup(function () {
-    // code to run on server at startup
+
+        Files.insert({name: "default", text: "timmy"});
+    
   });
 }

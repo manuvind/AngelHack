@@ -1,10 +1,8 @@
 /* CSS declarations go here */
-body
-{
-background-color:#d0e4fe;
-}
-.pizza
+
+.text
 {
 font-family:"Arial";
 font-size:20px;
+text-align: "center"
 }

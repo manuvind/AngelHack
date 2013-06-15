@@ -3,11 +3,10 @@
 </head>
 
 <body>
-  {{> hello}}
+  {{> textinput}}
 </body>
 
-<template name="hello">
-  <h1 class="pizza">Hello World!</h1>
-  {{greeting}}
-  <input type="button" value="Click" />
+<template name="textinput">
+  <textarea class="text" rows="25" cols="50" wrap="hard" autofocus>This thing is crazy!!</textarea>
+  <input type="button" value="Commit"></input>
 </template>

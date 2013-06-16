@@ -4,12 +4,20 @@
 
 <body>
 	<div>
-		<div class="editout">
-			<div id="editor">
-				{{contents}}
-				<textarea id="textarea"></textarea>
-			</div>
-		</div>
+		{{> texteditor}}
 	</div>
 	<input type=submit class="btn btn-primary"></input>
 </body>
+
+<template name="texteditor">
+	<div class="editout">
+		<div id="editor">
+			{{> contents}}
+		</div>
+	</div>
+</template>
+
+<template name="contents">
+	{{content}}
+</template>
+

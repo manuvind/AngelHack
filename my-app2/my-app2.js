@@ -10,13 +10,14 @@ if (Meteor.isClient) {
 	handle = query.observe({        
 	  	changed : function(newDoc, oldDoc) {
 	      if(editor !== undefined){
-	        editor.setValue(newDoc.contents);
+	        editor.setValue("");
+          editor.insert(newDoc.contents);
 	      }
 	    }
 	});
 }); //End Meteor.startup
-Template.buttons.events({
-  'click input.sync' : function () {
+Template.page.events({
+  'keyup div.listener' : function () {
     var fHandle = Files.findOne({name : "default"});
     var fID;
     if (fHandle) {
@@ -26,6 +27,11 @@ Template.buttons.events({
       Files.update(fID, 
       {name : "default", contents : editor.getValue()});
     }
+  }
+});
+Template.buttons.events({
+  'click input.sync' : function () {
+    editor.setValue(Files.findOne({}).contents);
   },
   'mouseenter #addButton' : function () {
     $('#addButton').popover({
@@ -38,21 +44,21 @@ Template.buttons.events({
     'click #createButton' : function () {
       var docHandle = document.getElementById("file-group");
       var inp = $('#newFileText').val();
-      docHandle.innerHTML += '<input class="btn ' + inp + '" type="button" value=' + inp + ' ></input>';
+      docHandle.innerHTML += '<input class="btn fileButton ' + inp + '" type="button" value=' + inp + ' ></input>';
       $('#addButton').popover('hide');
     },
     'click #closeButton' : function () {
       $('#addButton').popover('hide');
-    }
+    },
+
 }); //End button events
 
-Template.filelist.events({
-  'mouseenter input.file' : function () {
-    //$('.input.file').addClass('btn-danger');
-    
-  }
-});
-	///
+// Template.filelist.events({
+//   'mouseenter input.fileButton' : function () {
+//     alert($('<div>').append($(this).clone()).html());
+//   }
+// });
+///
 
 }//End if
 

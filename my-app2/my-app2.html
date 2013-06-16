@@ -3,16 +3,17 @@
 </head>
 
 <body>
-	<div id="wrapper">
+{{> page}}
+</body>
+<template name="page">
+	<div class="listener" id="wrapper">
 		<div id="title">WriteAway</div>
 		{{> buttonlist}}
 		{{> filelist}}
 		<div class="btn-group" id="button-group">
 		</div>
 			<div class="editout" id="wrapper">
-				<div id="editor">
-					{{contents}}
-				</div>
+				<div id="editor"> </div>
 			</div>
 		</div>
 	</div>
@@ -26,8 +27,7 @@
 			</fieldset>
 		</form>
 	</div>
-
-</body>
+</template>
 <template name="filelist">
 			<div class="btn-group" id="file-group">
 		   </div>
@@ -44,7 +44,7 @@
 		Language
 		<span class="caret"></span>
 		</a>
-		<ul class="dropdown-menu">
+		<ul id="language" class="dropdown-menu">
 		<!-- dropdown menu links -->
 		<li>
 		<a href="#">Python</a>

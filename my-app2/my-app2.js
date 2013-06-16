@@ -5,6 +5,7 @@ if (Meteor.isClient) {
   {
   	editor=ace.edit("editor");
     ///
+    editor.setTheme('ace/theme/solarized_light');
 	var query = Files.find({name : "default"});
 	//alert(Files.findOne({})._id);
 	handle = query.observe({        

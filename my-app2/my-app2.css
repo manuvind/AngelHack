@@ -7,7 +7,7 @@
 	width:700px;
 	height:600px;
 	margin:0 auto;
-	text-align:left;
+	text-align:center;
 }
 #title{
 	text-align: center;
@@ -20,7 +20,7 @@
 }
 #editor{
 	top:40%;
-	left: 0%;
+	left: 20%;
 	right: 20%;
 	bottom: 10%;
 }

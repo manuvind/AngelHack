@@ -5,17 +5,8 @@
 <body>
 	<div id="wrapper">
 		<div id="title">WriteAway</div>
-		{{> buttons1}}
-		{{> buttons2}}
-		<div class="btn-group" id="button-group">
-		</div>
-		<select class="selectpicker">
-    		<option>Pick yer language!</option>
-    		<option>Python</option>
-    		<option>Javascript</option>
-    		<option>C/C++</option>
-    		<option>Haskell</option>
-    	</select>
+		{{> button-list}}
+		{{> file-list}}
 		<div class="btn-group" id="button-group">
 		</div>
 			<div class="editout" id="wrapper">
@@ -26,9 +17,35 @@
 		</div>
 	</div>
 </body>
-<template name="buttons1">
-	<input class="btn" type="button" value="Sync"></input>
+<template name="file-list">
+			<div class="btn-group" id="file-group">
+		   </div>
 </template>
-<template name="buttons2">
-	<input class="btn" type="button" value="remove a tab"></input>
+<template name="button-list">
+	<div class="btn-group" id="button-group">
+		{{> buttons}}
+	</div>
+</template>
+<template name="buttons" id="buttons">
+		<input class="sync btn btn-primary" type="button" value="Sync"></input>
+		<input class="add btn" type="button" value="Add Tab"></input>
+		<a class="btn btn-primary btn-small dropdown-toggle" data-toggle="dropdown" href="#">
+		Language
+		<span class="caret"></span>
+		</a>
+		<ul class="dropdown-menu">
+		<!-- dropdown menu links -->
+		<li>
+		<a href="#">Python</a>
+		</li>
+		<li>
+		<a href="#">C/C++</a>
+		</li>
+		<li>
+		<a href="#">JavaScript</a>
+		</li>
+		<li>
+		<a href="#">Haskell</a>
+		</li>
+		</ul>
 </template>

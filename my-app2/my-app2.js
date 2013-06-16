@@ -15,8 +15,8 @@ if (Meteor.isClient) {
 	    }
 	});
 }); //End Meteor.startup
-Template.buttons1.events({
-  'click input.btn' : function () {
+Template.buttons.events({
+  'click input.sync' : function () {
     var fHandle = Files.findOne({name : "default"});
     var fID;
     if (fHandle) {
@@ -26,6 +26,10 @@ Template.buttons1.events({
       Files.update(fID, 
       {name : "default", contents : editor.getValue()});
     }
+  },
+  'click input.add' : function () {
+    var docHandle = document.getElementById("file-group");
+    docHandle.innerHTML += '<input class="btn" type="button" value="New Tab"></input>';
   }
 });
 	///

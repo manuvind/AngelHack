@@ -14,24 +14,28 @@ if (Meteor.isClient) {
 	      }
 	    }
 	});
-
-  	///
-  	editor.getSession().on('change', function(e) {
-    Files.update(Files.findOne({})._id, 
-      { $set : 
-        { 
-          contents : editor.getValue()
-        }
-      })
-	});
+}); //End Meteor.startup
+Template.buttons1.events({
+  'click input.btn' : function () {
+    var fHandle = Files.findOne({name : "default"});
+    var fID;
+    if (fHandle) {
+      fID = fHandle._id;
+    }
+    if (fID) {
+      Files.update(fID, 
+      {name : "default", contents : editor.getValue()});
+    }
+  }
+});
 	///
-  });//End Meteor.startup
+
 }//End if
 
 if (Meteor.isServer) {
   Meteor.startup(function () {
     if (Files.find().count() === 0) {
-        Files.insert({name: "default", contents: "<Insert Content>"});
+        Files.insert({name : "default", contents : "<Insert Content>"});
     }    
   });
 }

@@ -5,8 +5,8 @@
 <body>
 	<div id="wrapper">
 		<div id="title">WriteAway</div>
-		{{> button-list}}
-		{{> file-list}}
+		{{> buttonlist}}
+		{{> filelist}}
 		<div class="btn-group" id="button-group">
 		</div>
 			<div class="editout" id="wrapper">
@@ -16,19 +16,30 @@
 			</div>
 		</div>
 	</div>
+	<div id="popover_content_wrapper" style="display: none">
+		<form>
+			<fieldset>
+				<input id="closeButton" type="button" class='close' style="text-align: right" value="x">
+				<label>Create a file</label>
+					<input id="newFileText" type="text" placeholder="file name goes here">
+					<input id="createButton" type="button" class='btn' value="Create">
+			</fieldset>
+		</form>
+	</div>
+
 </body>
-<template name="file-list">
+<template name="filelist">
 			<div class="btn-group" id="file-group">
 		   </div>
 </template>
-<template name="button-list">
+<template name="buttonlist">
 	<div class="btn-group" id="button-group">
 		{{> buttons}}
 	</div>
 </template>
 <template name="buttons" id="buttons">
 		<input class="sync btn btn-primary" type="button" value="Sync"></input>
-		<input class="add btn" type="button" value="Add Tab"></input>
+		<input id="addButton" class="add btn" type="button" value="Add Tab"></input>
 		<a class="btn btn-primary btn-small dropdown-toggle" data-toggle="dropdown" href="#">
 		Language
 		<span class="caret"></span>

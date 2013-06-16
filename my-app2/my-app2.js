@@ -27,9 +27,29 @@ Template.buttons.events({
       {name : "default", contents : editor.getValue()});
     }
   },
-  'click input.add' : function () {
-    var docHandle = document.getElementById("file-group");
-    docHandle.innerHTML += '<input class="btn" type="button" value="New Tab"></input>';
+  'mouseenter #addButton' : function () {
+    $('#addButton').popover({
+      html : true,
+      content : function () {
+        return $('#popover_content_wrapper').html();
+      }
+    });
+    },
+    'click #createButton' : function () {
+      var docHandle = document.getElementById("file-group");
+      var inp = $('#newFileText').val();
+      docHandle.innerHTML += '<input class="btn ' + inp + '" type="button" value=' + inp + ' ></input>';
+      $('#addButton').popover('hide');
+    },
+    'click #closeButton' : function () {
+      $('#addButton').popover('hide');
+    }
+}); //End button events
+
+Template.filelist.events({
+  'mouseenter input.file' : function () {
+    //$('.input.file').addClass('btn-danger');
+    
   }
 });
 	///

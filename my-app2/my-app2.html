@@ -3,21 +3,33 @@
 </head>
 
 <body>
-	<div>
-		{{> texteditor}}
-	</div>
-	<input type=submit class="btn btn-primary"></input>
-</body>
-
-<template name="texteditor">
-	<div class="editout">
-		<div id="editor">
-			{{> contents}}
+	<div id="wrapper">
+		<div id="title">WriteAway</div>
+		{{> buttons1}}
+		{{> buttons2}}
+		<div class="btn-group" id="button-group">
+			<button class="btn">Filename!</button>
+		</div>
+		<select class="selectpicker">
+    		<option>Pick yer language!</option>
+    		<option>Python</option>
+    		<option>Javascript</option>
+    		<option>C/C++</option>
+    		<option>Haskell</option>
+    	</select>
+		<div class="btn-group" id="button-group">
+		</div>
+			<div class="editout" id="wrapper">
+				<div id="editor">
+					{{contents}}
+				</div>
+			</div>
 		</div>
 	</div>
+</body>
+<template name="buttons1">
+	<input class="btn" type="button" value="add a tab"></input>
 </template>
-
-<template name="contents">
-	{{content}}
+<template name="buttons2">
+	<input class="btn" type="button" value="remove a tab"></input>
 </template>
-

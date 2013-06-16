@@ -10,7 +10,7 @@ if (Meteor.isClient) {
 	handle = query.observe({        
 	  	changed : function(newDoc, oldDoc) {
 	      if(editor !== undefined){
-	        editor.setValue("");
+	        editor.setValue("",1);
           editor.insert(newDoc.contents);
 	      }
 	    }
@@ -40,16 +40,47 @@ Template.buttons.events({
         return $('#popover_content_wrapper').html();
       }
     });
+},
+
+  'click #createButton' : function () {
+  var docHandle = document.getElementById("file-group");
+  var inp = $('#newFileText').val();
+  docHandle.innerHTML += '<input class="btn fileButton ' + inp + '" type="button" value=' + inp + ' ></input>';
+  $('#addButton').popover('hide');
+  },
+  'click #closeButton' : function () {
+    $('#addButton').popover('hide');
+  },
+
+    //Languages
+    'click #rubyButton' : function () {
+      editor.getSession().setMode('ace/mode/ruby');
     },
-    'click #createButton' : function () {
-      var docHandle = document.getElementById("file-group");
-      var inp = $('#newFileText').val();
-      docHandle.innerHTML += '<input class="btn fileButton ' + inp + '" type="button" value=' + inp + ' ></input>';
-      $('#addButton').popover('hide');
+    'click #javaButton' : function () {
+      editor.getSession().setMode('ace/mode/java');
     },
-    'click #closeButton' : function () {
-      $('#addButton').popover('hide');
+    'click #javascriptButton' : function () {
+      editor.getSession().setMode('ace/mode/javascript');
     },
+    'click #phpButton' : function () {
+      editor.getSession().setMode('ace/mode/php');
+    },
+    'click #sassButton' : function () {
+      editor.getSession().setMode('ace/mode/sass');
+    },
+    //Themes
+    // 'click #rubyButton' : function () {
+    //   editor.getSession().setMode('ace/mode/ruby');
+    // },
+    // 'click #rubyButton' : function () {
+    //   editor.getSession().setMode('ace/mode/ruby');
+    // },
+    // 'click #rubyButton' : function () {
+    //   editor.getSession().setMode('ace/mode/ruby');
+    // },
+    // 'click #rubyButton' : function () {
+    //   editor.getSession().setMode('ace/mode/ruby');
+    // },
 
 }); //End button events
 

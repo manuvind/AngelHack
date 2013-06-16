@@ -3,12 +3,11 @@
 </head>
 
 <body>
-<div id="outer" style="width:100%">
-	<div id="inner">
+<div class="outer" style="width:100%">
+	<div class="inner">
 	{{> textinput}}
 	</div>
-</div>
-  
+</div> 
 </body>
 
 <template name="textinput">
@@ -21,8 +20,7 @@
 	<option>JavaScript</option>
 	<option>Haskell</option>
   </select>
-  <textarea class="text" form="textform" wrap="hard" autofocus>{{textstuff}}</textarea>
-  <form id="textform">
-  	<input type=submit></input>
-  </form>
+  <textarea class="text" wrap="soft" autofocus>{{textstuff}}</textarea>
+  	<input type=submit class="btn btn-primary"></input>
+
 </template>

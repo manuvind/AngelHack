@@ -1,0 +1,16 @@
+/* CSS declarations go here */
+
+#editor { 
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+#textarea {
+    font-family:"Andale Mono";
+    font-size:20px;
+    resize: none;
+    border-style: none; 
+    overflow: auto;
+}

@@ -1,22 +1,15 @@
 <head>
   <title>myapp</title>
 </head>
+
 <body>
-<div>
-<select>
-  <option>Pick yer language!</option>
-  <option>Python</option>
-  <option>C</option>
-  <option>Ruby</option>
-  <option>JavaScript</option>
-  <option>Haskell</option>
-</select>
-<div class="editout">
-	<div id="editor"></div>
-	<div class="editin">
-		<textarea id="textarea" rows="25" wrap="soft" name="description"></textarea>
+	<div>
+		<div class="editout">
+			<div id="editor">
+				{{contents}}
+				<textarea id="textarea"></textarea>
+			</div>
+		</div>
 	</div>
-</div>
-<input type=submit class="btn btn-primary"></input>
-</div>
+	<input type=submit class="btn btn-primary"></input>
 </body>
